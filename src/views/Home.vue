@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <div class="d-flex flex-column mb-6">
+      <v-card
+        v-for="(item, index) in items" :key="index"
+        class="mx-auto pa-2"
+        outlined
+        tile
+        width="800px"
+      >
+          {{item.title}} {{item.id}}
+      </v-card>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import ConferenceService from "@/service/ConferenceService";
 
 export default {
   name: "home",
-  components: {
-    HelloWorld
+  data: () => ({
+    items: []
+  }),
+  mounted() {
+    ConferenceService.getConferences()
+      .then(response => {
+        console.log(response.data);
+        this.items = response.data.content;
+      });
   }
 };
 </script>
