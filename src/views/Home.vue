@@ -1,16 +1,20 @@
 <template>
   <div>
-    <div class="d-flex flex-column mb-6">
-      <v-card
-        v-for="(item, index) in items" :key="index"
-        class="mx-auto pa-2"
-        outlined
-        tile
-        width="800px"
-      >
-          {{item.title}} {{item.id}}
-      </v-card>
-    </div>
+    <v-list width="800px" class="mx-auto">
+      <v-list-item-group>
+        <router-link
+          v-for="(item, index) in items" 
+          :key="index"
+          :to="{name: 'conferencePage', params: { id: item.id}}" 
+        >
+          <v-list-item>
+            <v-list-item-content>
+                {{item.title}}
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+      </v-list-item-group>
+    </v-list>
   </div>
 </template>
 
@@ -22,7 +26,7 @@ export default {
   data: () => ({
     items: []
   }),
-  mounted() {
+  created() {
     ConferenceService.getConferences()
       .then(response => {
         console.log(response.data);

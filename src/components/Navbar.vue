@@ -1,9 +1,11 @@
 <template>
     <nav>
         <v-app-bar flat>
-            <v-toolbar-title>
-                <span>The Conference</span>
-            </v-toolbar-title>
+            <router-link to="/">
+                <v-toolbar-title>
+                    <span>The Conference</span>
+                </v-toolbar-title>
+            </router-link>
             <v-spacer></v-spacer>
             <v-btn depressed>
                 <span>Sign Out</span>
