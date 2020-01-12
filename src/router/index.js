@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import ConferencePage from "../views/Conference.vue";
+import ConferenceView from "../views/ConferenceView.vue";
 
 Vue.use(VueRouter);
 
@@ -13,8 +13,8 @@ const routes = [
   },
   {
     path: "/conference/:id",
-    name: "conferencePage",
-    component: ConferencePage
+    name: "conferenceView",
+    component: ConferenceView
   },
   {
     path: "/about",

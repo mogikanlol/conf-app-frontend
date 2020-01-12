@@ -5,7 +5,7 @@
         <router-link
           v-for="(item, index) in items" 
           :key="index"
-          :to="{name: 'conferencePage', params: { id: item.id}}" 
+          :to="{name: 'conferenceView', params: { id: item.id}}" 
         >
           <v-list-item>
             <v-list-item-content>
