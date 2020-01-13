@@ -3,7 +3,7 @@
         <v-app-bar flat>
             <router-link to="/">
                 <v-toolbar-title>
-                    <span>The Conference</span>
+                    <span>The Header</span>
                 </v-toolbar-title>
             </router-link>
             <v-spacer></v-spacer>

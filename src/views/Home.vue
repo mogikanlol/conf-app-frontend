@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card max-height="600px">
+    <v-card max-height="600px" max-width="1500px" class="mx-auto">
       <v-card-title>Boards</v-card-title>
       <v-card-text>
         <v-row>
@@ -17,28 +17,14 @@
 </template>
 
 <script>
-
+import { mapState} from 'vuex'
 export default {
   name: "home",
-  data: () => ({
-    boards: {}
+  computed: mapState({
+    boards: state => state.board.boards,
   }),
   created() {
-    let genres = ["Music", "Games", "Japan", "Movies", "Technologies"]
-    let boards = [];
-    for(let i = 0; i < 50; i++) {
-      boards.push({title: "Board #" + i, genre: genres[Math.floor(Math.random() * genres.length)]});
-    }
-    console.log(boards);
-    
-    let result = {};
-    boards.forEach( value => {
-        result[value.genre] = result[value.genre] || [];
-        result[value.genre].push(value);
-      }
-    );
-    console.log(result);
-    this.boards = result;
+    this.$store.dispatch("board/getAll");
   }
 };
 </script>
