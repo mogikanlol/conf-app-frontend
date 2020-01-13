@@ -1,37 +1,44 @@
 <template>
   <div>
-    <v-list width="800px" class="mx-auto">
-      <v-list-item-group>
-        <router-link
-          v-for="(item, index) in items" 
-          :key="index"
-          :to="{name: 'conferenceView', params: { id: item.id}}" 
-        >
-          <v-list-item>
-            <v-list-item-content>
-                {{item.title}}
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
-      </v-list-item-group>
-    </v-list>
+    <v-card max-height="600px">
+      <v-card-title>Boards</v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col v-for="(value, index) in Object.keys(boards)" :key = index>
+            <h4>{{value}}</h4>
+            <div v-for="(board, index) in boards[value]" :key = index>
+              {{board.title}}
+            </div>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
   </div>
 </template>
 
 <script>
-import ConferenceService from "@/service/ConferenceService";
 
 export default {
   name: "home",
   data: () => ({
-    items: []
+    boards: {}
   }),
   created() {
-    ConferenceService.getConferences()
-      .then(response => {
-        console.log(response.data);
-        this.items = response.data.content;
-      });
+    let genres = ["Music", "Games", "Japan", "Movies", "Technologies"]
+    let boards = [];
+    for(let i = 0; i < 50; i++) {
+      boards.push({title: "Board #" + i, genre: genres[Math.floor(Math.random() * genres.length)]});
+    }
+    console.log(boards);
+    
+    let result = {};
+    boards.forEach( value => {
+        result[value.genre] = result[value.genre] || [];
+        result[value.genre].push(value);
+      }
+    );
+    console.log(result);
+    this.boards = result;
   }
 };
 </script>
