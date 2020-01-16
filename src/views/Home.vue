@@ -8,7 +8,9 @@
             <v-col v-for="(value, index) in Object.keys(boards)" :key = index>
               <h4><u>{{value}}</u></h4>
               <div v-for="(board, index) in boards[value]" :key = index>
-                {{board.title}}
+                <router-link :to="{ name: 'board', params: {id: board.id } }">
+                  {{board.title}}
+                </router-link>
               </div>
             </v-col>
           </v-row>
@@ -30,3 +32,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+a {
+    text-decoration: none;
+}
+</style>

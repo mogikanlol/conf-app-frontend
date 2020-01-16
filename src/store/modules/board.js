@@ -1,4 +1,4 @@
-import boardApi from '@/api/board'
+import boardApi from '@/api/boardApi'
 
 const state = {
   boards: []
@@ -9,7 +9,11 @@ const getters = {
 
 const actions = {
   getAll ({ commit }) {
-    boardApi.getAll(boards => commit('setBoards', boards))
+    boardApi.getAll(boards => commit('setBoards', boards));
+  },
+
+  getById ({ commit }, id) {
+    boardApi.getById(id, board => commit('setBoard', board));
   }
 }
 
@@ -23,6 +27,12 @@ const mutations = {
     );
     state.boards = result;
     console.log(result);
+  },
+
+  setBoard (state, board) {
+    // TODO: Rename it
+    state.animeBoard = board;
+    console.log(board);
   }
 }
 
