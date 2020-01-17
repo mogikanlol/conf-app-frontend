@@ -5,6 +5,15 @@
         <v-card-title>
           {{value.title}}
         </v-card-title>
+        <v-container> 
+          <v-img width="100px" height="100px" :src=value.image></v-img>
+          <div>
+            {{value.shortContent}}
+          </div>
+          <div class="text-right">
+            <v-btn color="primary">In Thread</v-btn> 
+          </div>
+        </v-container>
       </v-card>
     </v-container>
   </div>
