@@ -11,7 +11,9 @@
             {{value.shortContent}}
           </div>
           <div class="text-right">
-            <v-btn color="primary">In Thread</v-btn> 
+            <router-link :to="{name: 'thread', params: {id: value.id} }">
+              <v-btn color="primary">In Thread</v-btn> 
+            </router-link>
           </div>
         </v-container>
       </v-card>
