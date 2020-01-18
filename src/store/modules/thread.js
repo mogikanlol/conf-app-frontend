@@ -1,7 +1,7 @@
 import threadApi from '@/api/threadApi'
 
 const state = {
-  evaThread: []
+  evaThread: {}
 }
 
 const getters = {
@@ -10,6 +10,9 @@ const getters = {
 const actions = {
   getById ({ commit }, id) {
     threadApi.getById(id, thread => commit('setThread', thread));
+  },
+  addPost (state, post) {
+    threadApi.addPost(post)
   }
 }
 

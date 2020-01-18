@@ -22,6 +22,7 @@ for(let i = 0; i < 50; i++) {
 };
 
 export const evaThread = {
+    id: 0,
     title: "Neon Genesis Evangelion Thread",
     image: require('@/assets/anime/Manga_Book_14_Cover.png'),
     content: lorem,

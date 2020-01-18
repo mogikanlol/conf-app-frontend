@@ -16,6 +16,17 @@
           <div>{{post.content}}</div>
         </v-card>
       </div>
+      <div class="my-4">
+        <v-form ref="form" v-model="isFormValid" >
+          <v-textarea
+              filled
+              auto-grow
+              v-model="inputText"
+              :rules="[rules.textarea]"
+          ></v-textarea>
+        </v-form>
+          <v-btn @click="addPost()" color="primary" :disabled="!isFormValid">Send</v-btn>
+        </div>
     </v-container>
   </div>
 </template>
@@ -24,6 +35,23 @@
 import { mapState} from 'vuex'
 export default {
   name: "thread",
+  data: () => ({
+    isFormValid: false,
+    inputText: '',
+    rules: {
+      textarea: v => (v || '').length > 0 || ''
+    }
+  }),
+  methods: {
+    addPost() {
+      const post = {
+        threadId: this.thread.id,
+        content: this.inputText
+      };
+      this.$store.dispatch("thread/addPost", post);
+      this.$refs.form.reset();
+    }
+  },
   computed: mapState({
     thread: state => state.thread.evaThread,
   }),
