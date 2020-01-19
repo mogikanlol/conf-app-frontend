@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState} from 'vuex'
+import { mapState } from 'vuex'
 import ThreadPreviewListItem from "@/components/ThreadPreviewListItem"
 export default {
   name: "board",

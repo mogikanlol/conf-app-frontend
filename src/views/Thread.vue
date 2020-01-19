@@ -17,39 +17,26 @@
         </v-card>
       </div>
       <div class="my-4">
-        <v-form ref="form" v-model="isFormValid" >
-          <v-textarea
-              filled
-              auto-grow
-              v-model="inputText"
-              :rules="[rules.textarea]"
-          ></v-textarea>
-        </v-form>
-          <v-btn @click="addPost()" color="primary" :disabled="!isFormValid">Send</v-btn>
-        </div>
+        <NewPostForm @add-post="addPost" ref="childForm"></NewPostForm>
+      </div>
     </v-container>
   </div>
 </template>
 
 <script>
 import { mapState} from 'vuex'
+import NewPostForm from "@/components/NewPostForm"
 export default {
   name: "thread",
-  data: () => ({
-    isFormValid: false,
-    inputText: '',
-    rules: {
-      textarea: v => (v || '').length > 0 || ''
-    }
-  }),
+  components: { NewPostForm },
   methods: {
-    addPost() {
+    addPost(inputText) {
       const post = {
         threadId: this.thread.id,
-        content: this.inputText
+        content: inputText
       };
       this.$store.dispatch("thread/addPost", post);
-      this.$refs.form.reset();
+      this.$refs.childForm.resetForm();
     }
   },
   computed: mapState({
