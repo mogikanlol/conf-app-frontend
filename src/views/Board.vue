@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <ThreadPreviewListItem 
-        v-for="(value, index) in threads" 
+        v-for="(value, index) in board.threads" 
         :key = index 
         class="mb-2" 
         :thread= value
@@ -12,17 +12,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import ThreadPreviewListItem from "@/components/ThreadPreviewListItem"
+import BoardService from "@/service/BoardService"
+
 export default {
   name: "board",
   components: { ThreadPreviewListItem },
-  computed: mapState({
-    animeBoard: state => state.board.animeBoard,
-    threads: state => state.board.animeBoard.threads
+  data: () => ({
+    board: {}
   }),
   created() {
-    this.$store.dispatch("board/getById", this.$route.params.id);
+    BoardService.getById(this.$route.params.id)
+      .then(board => this.board = board);
   }
 }
 </script>

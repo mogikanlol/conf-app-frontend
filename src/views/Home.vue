@@ -21,14 +21,18 @@
 </template>
 
 <script>
-import { mapState} from 'vuex'
+// import { mapState} from 'vuex'
+
+import BoardService from "@/service/BoardService"
+
 export default {
   name: "home",
-  computed: mapState({
-    boards: state => state.board.boards,
+  data: () => ({
+    boards: []
   }),
   created() {
-    this.$store.dispatch("board/getAll");
+    BoardService.getAll()
+      .then(boards => this.boards = boards);
   }
 };
 </script>

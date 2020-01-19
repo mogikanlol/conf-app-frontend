@@ -24,26 +24,27 @@
 </template>
 
 <script>
-import { mapState} from 'vuex'
 import NewPostForm from "@/components/NewPostForm"
+import ThreadService from "@/service/ThreadService"
 export default {
   name: "thread",
   components: { NewPostForm },
+  data: () => ({
+    thread: {}
+  }),
   methods: {
     addPost(inputText) {
       const post = {
         threadId: this.thread.id,
         content: inputText
       };
-      this.$store.dispatch("thread/addPost", post);
+      ThreadService.addPost(post);
       this.$refs.childForm.resetForm();
     }
   },
-  computed: mapState({
-    thread: state => state.thread.evaThread,
-  }),
   created() {
-    this.$store.dispatch("thread/getById", this.$route.params.id);
+    ThreadService.getById(this.$route.params.id)
+      .then(thread => this.thread = thread);
   }
 }
 </script>
