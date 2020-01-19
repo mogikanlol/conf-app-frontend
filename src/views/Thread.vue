@@ -11,10 +11,12 @@
         </div>
       </v-card>
       <div>
-        <v-card v-for="(post, index) in thread.posts" :key=index class="mb-1 px-1 py-1">
-          <div>#{{post.id}}</div>
-          <div>{{post.content}}</div>
-        </v-card>
+        <ThreadPost 
+          v-for="(post, index) in thread.posts" 
+          :key=index 
+          :post=post
+          class="mb-1 px-1 py-1"
+        ></ThreadPost>
       </div>
       <div class="my-4">
         <NewPostForm @add-post="addPost" ref="childForm"></NewPostForm>
@@ -26,9 +28,10 @@
 <script>
 import NewPostForm from "@/components/NewPostForm"
 import ThreadService from "@/service/ThreadService"
+import ThreadPost from "@/components/ThreadPost"
 export default {
   name: "thread",
-  components: { NewPostForm },
+  components: { NewPostForm, ThreadPost },
   data: () => ({
     thread: {}
   }),
