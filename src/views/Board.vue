@@ -1,30 +1,22 @@
 <template>
   <div>
     <v-container>
-      <v-card v-for="(value, index) in threads" :key = index class="mb-2">
-        <v-card-title>
-          {{value.title}}
-        </v-card-title>
-        <v-container> 
-          <v-img width="100px" height="100px" :src=value.image></v-img>
-          <div>
-            {{value.shortContent}}
-          </div>
-          <div class="text-right">
-            <router-link :to="{name: 'thread', params: {id: value.id} }">
-              <v-btn color="primary">In Thread</v-btn> 
-            </router-link>
-          </div>
-        </v-container>
-      </v-card>
+      <ThreadPreviewListItem 
+        v-for="(value, index) in threads" 
+        :key = index 
+        class="mb-2" 
+        :thread= value
+      ></ThreadPreviewListItem>
     </v-container>
   </div>
 </template>
 
 <script>
 import { mapState} from 'vuex'
+import ThreadPreviewListItem from "@/components/ThreadPreviewListItem"
 export default {
   name: "board",
+  components: { ThreadPreviewListItem },
   computed: mapState({
     animeBoard: state => state.board.animeBoard,
     threads: state => state.board.animeBoard.threads
