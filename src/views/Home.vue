@@ -21,8 +21,6 @@
 </template>
 
 <script>
-// import { mapState} from 'vuex'
-
 import BoardService from "@/service/BoardService"
 
 export default {

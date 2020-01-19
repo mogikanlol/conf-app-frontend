@@ -1,23 +1,23 @@
 <template>
   <div>
     <v-container>
-      <ThreadPreviewListItem 
+      <ThreadPreview 
         v-for="(value, index) in board.threads" 
         :key = index 
         class="mb-2" 
         :thread= value
-      ></ThreadPreviewListItem>
+      ></ThreadPreview>
     </v-container>
   </div>
 </template>
 
 <script>
-import ThreadPreviewListItem from "@/components/ThreadPreviewListItem"
+import ThreadPreview from "@/components/ThreadPreview"
 import BoardService from "@/service/BoardService"
 
 export default {
   name: "board",
-  components: { ThreadPreviewListItem },
+  components: { ThreadPreview },
   data: () => ({
     board: {}
   }),
