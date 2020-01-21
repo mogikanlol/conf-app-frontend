@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import NewPostForm from "@/components/NewPostForm"
+import NewPostForm from "@/components/thread/NewPostForm"
 import ThreadService from "@/service/ThreadService"
-import ThreadPost from "@/components/ThreadPost"
-import ThreadFirstPost from "@/components/ThreadFirstPost"
+import ThreadPost from "@/components/thread/ThreadPost"
+import ThreadFirstPost from "@/components/thread/ThreadFirstPost"
 
 export default {
   name: "thread",

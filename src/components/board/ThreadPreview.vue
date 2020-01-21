@@ -7,7 +7,7 @@
       <v-container> 
         <v-img width="100px" height="100px" :src=thread.image></v-img>
         <div>
-          {{thread.shortContent}}
+          {{thread.content}}
         </div>
         <div class="text-right">
           <router-link :to="{name: 'thread', params: {id: thread.id} }">

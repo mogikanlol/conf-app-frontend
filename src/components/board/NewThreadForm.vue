@@ -31,7 +31,7 @@ export default {
     addThread() {
       const thread = {
         title: this.title,
-        shortContent: this.content
+        content: this.content
       };
       this.$emit('add-thread', thread);
     },

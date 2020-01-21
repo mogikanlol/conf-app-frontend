@@ -26,6 +26,7 @@ export default class BoardService {
   static addNewThread(id, thread) {
     const board = id === 'a'? animeBoard : {};
     thread.id = board.threads[board.threads.length - 1].id + 1;
+    thread.posts = [];
     board.threads.push(thread);
   }
 }

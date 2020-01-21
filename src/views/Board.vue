@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import ThreadPreview from "@/components/ThreadPreview"
-import NewThreadForm from "@/components/NewThreadForm"
+import ThreadPreview from "@/components/board/ThreadPreview"
+import NewThreadForm from "@/components/board/NewThreadForm"
 import BoardService from "@/service/BoardService"
 
 export default {
