@@ -22,4 +22,10 @@ export default class BoardService {
         resolve(board);
     });
   }
+
+  static addNewThread(id, thread) {
+    const board = id === 'a'? animeBoard : {};
+    thread.id = board.threads[board.threads.length - 1].id + 1;
+    board.threads.push(thread);
+  }
 }

@@ -1,6 +1,14 @@
 <template>
   <div>
     <v-container>
+      <div class="text-center my-2">
+        <v-btn color="primary" @click="showNewThreadForm = !showNewThreadForm;">
+          {{!showNewThreadForm ? '[Start a New Thread]' : '[Close Form]'}}
+        </v-btn>
+      </div>
+      <div id="newThreadForm" v-if="showNewThreadForm" class="mx-auto my-2">
+        <NewThreadForm @add-thread="addThread" ref="childForm"/>
+      </div>
       <ThreadPreview 
         v-for="(value, index) in board.threads" 
         :key = index 
@@ -13,17 +21,33 @@
 
 <script>
 import ThreadPreview from "@/components/ThreadPreview"
+import NewThreadForm from "@/components/NewThreadForm"
 import BoardService from "@/service/BoardService"
 
 export default {
   name: "board",
-  components: { ThreadPreview },
+  components: { ThreadPreview, NewThreadForm },
   data: () => ({
-    board: {}
+    board: {},
+    showNewThreadForm: false
   }),
   created() {
     BoardService.getById(this.$route.params.id)
       .then(board => this.board = board);
+  },
+  methods: {
+    addThread(thread) {
+      BoardService.addNewThread(this.$route.params.id, thread);
+      this.$refs.childForm.resetForm();
+    }
   }
 }
 </script>
+
+<style scoped>
+
+#newThreadForm {
+  width: 800px
+}
+
+</style>
