@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div ref="messagesContainer">
     <v-container>
-      <v-btn color="primary" class="my-2" @click="goBack()">Back</v-btn>
+      <v-btn color="primary" class="my-2 mx-2" @click="goBack()">Back</v-btn>
+      <v-btn color="primary" class="my-2 mx-2" @click="goBottom()">Bottom</v-btn>
       <ThreadFirstPost 
         class="mb-2" 
         :thread=thread 
@@ -14,6 +15,8 @@
       <div class="my-4">
         <NewPostForm @add-post="addPost" ref="childForm" />
       </div>
+      <v-btn color="primary" class="my-2 mx-2" @click="goBack()">Back</v-btn>
+      <v-btn color="primary" class="my-2 mx-2" @click="goTop()">Top</v-btn>
     </v-container>
   </div>
 </template>
@@ -39,6 +42,14 @@ export default {
 
       ThreadService.addPost(post);
       this.$refs.childForm.resetForm();
+    },
+
+    goTop() {
+      window.scrollTo(0,0);
+    },
+
+    goBottom() {
+      window.scrollTo(0,document.body.scrollHeight);
     },
 
     goBack() {
