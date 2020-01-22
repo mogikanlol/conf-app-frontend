@@ -3,8 +3,8 @@ import { animeBoard } from "@/api/stub/anime-board-stub";
 export default class ThreadService {
 
   static getById (id) {
-    const thread = animeBoard.threads.find(thread => thread.id === id);
-    console.log(animeBoard.threads);
+    const thread = animeBoard.threads.find(thread => thread.id == id);
+    console.log(thread);
     return new Promise( (resolve) => {
         resolve(thread);
     });
