@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-container>
+      <v-btn color="primary" class="my-2" @click="goBack()">Back</v-btn>
       <ThreadFirstPost 
         class="mb-2" 
         :thread=thread 
@@ -38,6 +39,10 @@ export default {
 
       ThreadService.addPost(post);
       this.$refs.childForm.resetForm();
+    },
+
+    goBack() {
+      this.$router.go(-1);
     }
   },
   created() {
