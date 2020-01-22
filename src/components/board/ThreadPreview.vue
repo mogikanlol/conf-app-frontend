@@ -9,9 +9,9 @@
         <div>
           {{thread.content}}
         </div>
-        <div class="text-right">
+        <div>
           <router-link :to="{name: 'thread', params: {id: thread.id} }">
-            <v-btn color="primary">In Thread</v-btn> 
+            <v-btn color="primary">In The Thread</v-btn> 
           </router-link>
         </div>
       </v-container>
