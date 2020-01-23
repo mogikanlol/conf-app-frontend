@@ -17,4 +17,9 @@ export default class ThreadService {
     post.id = lastId + 1;
     thread.posts.push(post);
   }
+
+  static deletePost(threadId, postId) {
+    const thread = animeBoard.threads.find(thread => thread.id === threadId);
+    thread.posts = thread.posts.filter(post => post.id !== postId);
+  }
 }

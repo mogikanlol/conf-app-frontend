@@ -11,6 +11,7 @@
         v-for="(post, index) in thread.posts" 
         :key=index 
         :post=post
+        @delete-post="deletePost"
       />
       <div class="my-4">
         <NewPostForm @add-post="addPost" ref="childForm" />
@@ -42,6 +43,10 @@ export default {
 
       ThreadService.addPost(post);
       this.$refs.childForm.resetForm();
+    },
+
+    deletePost(postId) {
+      ThreadService.deletePost(this.thread.id, postId);
     },
 
     goTop() {
