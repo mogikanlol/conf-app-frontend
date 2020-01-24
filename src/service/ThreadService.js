@@ -22,4 +22,14 @@ export default class ThreadService {
     const thread = animeBoard.threads.find(thread => thread.id === threadId);
     thread.posts = thread.posts.filter(post => post.id !== postId);
   }
+
+  static updatePost(threadId, post) {
+    const thread = animeBoard.threads.find(thread => thread.id === threadId);
+    const index = thread.posts.findIndex(el => el.id === post.id);
+    thread.posts.splice(index, 1, post);
+
+    return new Promise((resolve) => {
+      resolve(post);
+    });
+  }
 }
