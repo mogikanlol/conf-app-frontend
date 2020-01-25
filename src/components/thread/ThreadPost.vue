@@ -65,6 +65,7 @@ export default {
     },
 
     discardChanges() {
+      this.localPost.content = this.post.content;
       this.editable = false;
     }
   }
