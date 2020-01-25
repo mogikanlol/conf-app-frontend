@@ -21,6 +21,7 @@ export default class ThreadService {
   static deletePost(threadId, postId) {
     const thread = animeBoard.threads.find(thread => thread.id === threadId);
     thread.posts = thread.posts.filter(post => post.id !== postId);
+    return new Promise(() => {});
   }
 
   static updatePost(threadId, post) {

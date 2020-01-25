@@ -11,7 +11,7 @@
         v-for="(post, index) in thread.posts" 
         :key=index
         :post=post
-        @delete-post="deletePost"
+        @delete-post="deletePost(index, $event)"
         @change-post="changePost(index, $event)"
       />
       <div class="my-4">
@@ -46,8 +46,11 @@ export default {
       this.$refs.childForm.resetForm();
     },
 
-    deletePost(postId) {
-      ThreadService.deletePost(this.thread.id, postId);
+    deletePost(index, postId) {
+      ThreadService.deletePost(this.thread.id, postId)
+        .then(() => {
+          this.thread.posts.splice(index, 1);
+        });
     },
 
     changePost(index, post) {
