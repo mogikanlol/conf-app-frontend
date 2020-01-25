@@ -1,5 +1,5 @@
 <template>
-  <div ref="messagesContainer">
+  <div>
     <v-container>
       <v-btn color="primary" class="my-2 mx-2" @click="goBack()">Back</v-btn>
       <v-btn color="primary" class="my-2 mx-2" @click="goBottom()">Bottom</v-btn>
