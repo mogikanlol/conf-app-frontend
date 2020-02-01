@@ -1,17 +1,15 @@
-import { boards } from "@/api/stub/boards-stub";
+// import { boards } from "@/api/stub/boards-stub";
 import { animeBoard } from "@/api/stub/anime-board-stub";
+
+import axios from 'axios'
 
 export default class BoardService {
 
   static getAll() {
-    let result = {};
-    boards.forEach( value => {
-      result[value.genre] = result[value.genre] || [];
-      result[value.genre].push(value);
-      }
-    );
-    return new Promise( (resolve) => {
-      resolve(result);
+    return axios.get("/boards", {
+      transformResponse: axios.defaults.transformResponse.concat((data) => {
+        return this.toMapGenreToBoards(data);
+      })
     });
   }
 
@@ -28,5 +26,14 @@ export default class BoardService {
     thread.id = board.threads[board.threads.length - 1].id + 1;
     thread.posts = [];
     board.threads.push(thread);
+  }
+
+  static toMapGenreToBoards(data) {
+    let result = {};
+    data.forEach(value => {
+      result[value.genre] = result[value.genre] || [];
+      result[value.genre].push(value);
+    });
+    return result;
   }
 }

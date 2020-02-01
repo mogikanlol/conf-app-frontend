@@ -30,7 +30,7 @@ export default {
   }),
   created() {
     BoardService.getAll()
-      .then(boards => this.boards = boards);
+      .then(res => this.boards = res.data);
   }
 };
 </script>
