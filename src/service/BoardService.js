@@ -1,4 +1,3 @@
-// import { boards } from "@/api/stub/boards-stub";
 import { animeBoard } from "@/api/stub/anime-board-stub";
 
 import axios from 'axios'
@@ -15,13 +14,6 @@ export default class BoardService {
 
   static getById(id) {
     return axios.get("/boards/" + id);
-    // const board = id === 'a'? animeBoard : {}
-
-    // return new Promise( (resolve) => {
-    //     resolve({
-    //       data: board
-    //     });
-    // });
   }
 
   static addNewThread(id, thread) {
