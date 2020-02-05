@@ -24,35 +24,35 @@ const threads = [
     {
         id: 0,
         title: "Neon Genesis Evangelion Thread",
-        image: require('@/assets/anime/Manga_Book_14_Cover.png'),
+        imageUrl: require('@/assets/anime/Manga_Book_14_Cover.png'),
         content: lorem,
         posts: posts
     },
     {
         id: 1,
         title: "K-On Thread",
-        image: require('@/assets/anime/k-on.jpg'),
+        imageUrl: require('@/assets/anime/k-on.jpg'),
         content: lorem,
         posts: [] 
     },
     {
         id: 2,
         title: "JoJo Thread",
-        image: require('@/assets/anime/jojo.jpg'),
+        imageUrl: require('@/assets/anime/jojo.jpg'),
         content: lorem,
         posts: []
     },
     {
         id: 3,
         title: "SAO Thread",
-        image: require('@/assets/anime/sao.jpg'),
+        imageUrl: require('@/assets/anime/sao.jpg'),
         content: lorem,
         posts: []
     },
     {
         id: 4,
         title: "ReZero Thread",
-        image: require('@/assets/anime/rezero.png'),
+        imageUrl: require('@/assets/anime/rezero.png'),
         content: lorem,
         posts: []
     },

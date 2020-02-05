@@ -33,7 +33,7 @@ export default {
   }),
   created() {
     BoardService.getById(this.$route.params.id)
-      .then(board => this.board = board);
+      .then(res => this.board = res.data);
   },
   methods: {
     addThread(thread) {

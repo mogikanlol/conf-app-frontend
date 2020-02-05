@@ -14,11 +14,14 @@ export default class BoardService {
   }
 
   static getById(id) {
-    const board = id === 'a'? animeBoard : {}
+    return axios.get("/boards/" + id);
+    // const board = id === 'a'? animeBoard : {}
 
-    return new Promise( (resolve) => {
-        resolve(board);
-    });
+    // return new Promise( (resolve) => {
+    //     resolve({
+    //       data: board
+    //     });
+    // });
   }
 
   static addNewThread(id, thread) {

@@ -5,7 +5,7 @@
         {{thread.title}}
       </v-card-title>
       <v-container> 
-        <v-img width="100px" height="100px" :src=thread.image></v-img>
+        <v-img width="100px" height="100px" :src=thread.imageUrl></v-img>
         <div>
           {{thread.content}}
         </div>
