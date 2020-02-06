@@ -74,7 +74,7 @@ export default {
   },
   created() {
     ThreadService.getById(this.$route.params.id)
-      .then(thread => this.thread = thread);
+      .then(res => this.thread = res.data);
   }
 }
 </script>

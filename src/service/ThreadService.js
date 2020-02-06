@@ -1,13 +1,11 @@
 import { animeBoard } from "@/api/stub/anime-board-stub";
 
+import axios from 'axios'
+
 export default class ThreadService {
 
   static getById (id) {
-    const thread = animeBoard.threads.find(thread => thread.id == id);
-    console.log(thread);
-    return new Promise( (resolve) => {
-        resolve(thread);
-    });
+    return axios.get("/threads/" + id);
   }
 
   static addPost(post) {
