@@ -37,7 +37,9 @@ export default {
   },
   methods: {
     addThread(thread) {
-      BoardService.addNewThread(this.$route.params.id, thread);
+      BoardService.addNewThread(this.$route.params.id, thread)
+        .then(res => this.board.threads.push(res.data));
+        
       this.$refs.childForm.resetForm();
     }
   }
