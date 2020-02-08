@@ -12,10 +12,8 @@ export default class ThreadService {
     return axios.post("/posts", post);
   }
 
-  static deletePost(threadId, postId) {
-    const thread = animeBoard.threads.find(thread => thread.id === threadId);
-    thread.posts = thread.posts.filter(post => post.id !== postId);
-    return new Promise(() => {});
+  static deletePost(postId) {
+    return axios.delete("/posts/" + postId);
   }
 
   static updatePost(threadId, post) {
