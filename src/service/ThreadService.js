@@ -9,11 +9,7 @@ export default class ThreadService {
   }
 
   static addPost(post) {
-    const thread = animeBoard.threads.find(thread => thread.id === post.threadId);
-    const lastPost = thread.posts[thread.posts.length - 1] || {};
-    const lastId = lastPost.id || 10000;
-    post.id = lastId + 1;
-    thread.posts.push(post);
+    return axios.post("/posts", post);
   }
 
   static deletePost(threadId, postId) {

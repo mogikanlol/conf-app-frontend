@@ -42,7 +42,9 @@ export default {
         content: inputText
       };
 
-      ThreadService.addPost(post);
+      ThreadService.addPost(post)
+        .then(res => this.thread.posts.push(res.data));
+        
       this.$refs.childForm.resetForm();
     },
 
