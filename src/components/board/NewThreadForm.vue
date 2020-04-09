@@ -13,6 +13,7 @@
         label="Content"
         :rules="[rules.text]"
     ></v-textarea>
+    <v-file-input v-model="image" accept="image/png, image/jpeg, image/bmp" label="File input"></v-file-input>
     <v-btn @click="addThread()" color="primary" :disabled="!isFormValid">Send</v-btn>
   </v-form>
 </template>
@@ -21,8 +22,9 @@
 export default {
   data: () => ({
     title: '',
-    isFormValid: false,
     content: '',
+    image: null,
+    isFormValid: false,
     rules: {
       text: v => (v || '').length > 0 || ''
     }
@@ -31,7 +33,8 @@ export default {
     addThread() {
       const thread = {
         title: this.title,
-        content: this.content
+        content: this.content,
+        image: this.image
       };
       this.$emit('add-thread', thread);
     },

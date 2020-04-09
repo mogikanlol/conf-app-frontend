@@ -15,9 +15,22 @@ export default class BoardService {
   }
 
   static addNewThread(id, thread) {
-    return axios.post("/threads", {
-      ...thread,
+    const requestFormData = new FormData();
+    const threadJson = JSON.stringify({
+      content: thread.content,
+      title: thread.title,
       boardId: id
+    });
+    const threadBlob = new Blob([threadJson], {type: 'application/json'});
+
+    requestFormData.append("thread", threadBlob);
+    requestFormData.append("image", thread.image);
+
+    return axios({
+      method: "post",
+      url: "/threads",
+      data: requestFormData,
+      headers: {'Content-Type': 'multipart/form-data'}
     });
   }
 
