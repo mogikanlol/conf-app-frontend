@@ -29,30 +29,6 @@
         <button class="button" @click="goTop()">Top</button>
       </div>
     </div>
-
-
-
-
-    <!-- <v-container>
-      <v-btn color="primary" class="my-2 mx-2" @click="goBack()">Back</v-btn>
-      <v-btn color="primary" class="my-2 mx-2" @click="goBottom()">Bottom</v-btn>
-      <ThreadFirstPost 
-        class="mb-2" 
-        :thread=thread 
-      />
-      <ThreadPost 
-        v-for="(post, index) in thread.posts" 
-        :key=index
-        :post=post
-        @delete-post="deletePost(index, $event)"
-        @change-post="changePost(index, $event)"
-      />
-      <div class="my-4">
-        <NewPostForm @add-post="addPost" ref="childForm" />
-      </div>
-      <v-btn color="primary" class="my-2 mx-2" @click="goBack()">Back</v-btn>
-      <v-btn color="primary" class="my-2 mx-2" @click="goTop()">Top</v-btn>
-    </v-container> -->
   </div>
 </template>
 

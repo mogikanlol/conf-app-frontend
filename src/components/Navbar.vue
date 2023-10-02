@@ -3,31 +3,13 @@
   <div class="nav">
     <div>
       <router-link to="/" class="zxc">
-        <!-- <v-btn depressed> -->
-          <!-- <button class="zxc"> -->
             The Header Home
-          <!-- </button> -->
-        <!-- </v-btn> -->
       </router-link>
     </div>
     <div>
       <span class="zxc">Sign In</span>
     </div>
   </div>
-
-  <!-- <nav>
-    <v-app-bar flat>
-      <router-link to="/">
-        <v-btn depressed>
-          <span>The Header Home</span>
-        </v-btn>
-      </router-link>
-      <v-spacer></v-spacer>
-      <v-btn depressed>
-        <span>Sign In</span>
-      </v-btn>
-    </v-app-bar>    
-  </nav> -->
 </div>
 </template>
 

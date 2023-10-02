@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="maw">
       <button class="button" @click="showNewThreadForm = !showNewThreadForm;">{{!showNewThreadForm ? '[Start a New Thread]' : '[Close Form]'}}</button>
       <div v-if="showNewThreadForm">
@@ -12,23 +11,6 @@
         :thread= value
       ></ThreadPreview>
     </div>
-
-    <!-- <v-container>
-      <div class="text-center my-2">
-        <v-btn color="primary" @click="showNewThreadForm = !showNewThreadForm;">
-          {{!showNewThreadForm ? '[Start a New Thread]' : '[Close Form]'}}
-        </v-btn>
-      </div>
-      <div id="newThreadForm" v-if="showNewThreadForm" class="mx-auto my-2">
-        <NewThreadForm @add-thread="addThread" ref="childForm"/>
-      </div>
-      <ThreadPreview 
-        v-for="(value, index) in board.threads" 
-        :key = index 
-        class="mb-2" 
-        :thread= value
-      ></ThreadPreview>
-    </v-container> -->
   </div>
 </template>
 

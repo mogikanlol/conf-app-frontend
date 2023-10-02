@@ -14,25 +14,6 @@
         </div>
       </div>
     </div>
-
-
-
-    <!-- <v-card>
-      <v-card-title>
-        {{thread.title}}
-      </v-card-title>
-      <v-container> 
-        <v-img width="100px" height="100px" :src=thread.imageUrl></v-img>
-        <div>
-          {{thread.content}}
-        </div>
-        <div>
-          <router-link :to="{name: 'thread', params: {id: thread.id} }">
-            <v-btn color="primary">In The Thread</v-btn> 
-          </router-link>
-        </div>
-      </v-container>
-    </v-card> -->
   </div>
 </template>
 
@@ -64,33 +45,7 @@ export default {
 }
 
 .button {
-
-  /* margin: 5px; */
-  /* border: black solid 1px; */
-
   margin-top: 10px;
-
-  /* color: white; */
-  /* border-radius: 5px; */
-  /* padding-top: 7px; */
-  /* padding-bottom: 7px; */
-  /* padding-left: 15px; */
-  /* padding-right: 15px; */
-  /* width: fit-content; */
-  /* background-color: #1976d2; */
-  /* box-shadow: 1px 1px 1px grey; */
-
-  /* background-color: rgb(106, 7, 219); */
-  /* background-color: #48fa1c; */
-
-  /* margin: 20px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  color: black;
-  border-radius: 5px; */
 }
 
 .wtf {

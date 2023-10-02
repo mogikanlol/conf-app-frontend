@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="post">
       <div class="post-header">
         <h3>{{ thread.title }}</h3>
@@ -12,18 +11,6 @@
         {{ thread.content }}
       </div>
     </div>
-
-
-
-    <!-- <v-card>
-      <v-card-title>
-        {{thread.title}}
-      </v-card-title>
-      <v-img contain height="400px" width="400px" :src=thread.imageUrl></v-img>
-      <div>
-        {{thread.content}}
-      </div>
-    </v-card> -->
   </div>
 </template>
 

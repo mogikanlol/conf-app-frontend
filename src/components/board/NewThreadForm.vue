@@ -1,9 +1,6 @@
 <template>
-
   <div>
-
     <div>
-      
       <form class="new-thread-form" ref="form">
         <input type="text" placeholder="Title" class="title-input" v-model="title" :rules="[rules.text]">
         <textarea placeholder="Content" class="text-area" v-model="content" :rules="[rules.text]"></textarea>
@@ -13,27 +10,6 @@
       </form>
 
     </div>
-  
-
-
-    <!-- <v-form ref="form" v-model="isFormValid" >
-      <v-text-field
-          v-model="title"
-          :rules="[rules.text]"
-          filled
-          label="Title"
-      ></v-text-field>
-      <v-textarea
-          filled
-          auto-grow
-          v-model="content"
-          label="Content"
-          :rules="[rules.text]"
-      ></v-textarea>
-      <v-file-input v-model="image" accept="image/png, image/jpeg, image/bmp" label="File input"></v-file-input>
-      <v-btn @click="addThread()" color="primary" :disabled="!isFormValid">Send</v-btn>
-    </v-form> -->
-
   </div>
 </template>
 

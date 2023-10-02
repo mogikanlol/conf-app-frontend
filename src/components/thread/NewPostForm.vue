@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div>
       <form ref="form">
         <textarea v-model="inputText" :rules="[rules.textarea]" class="post-edit-area"></textarea>
@@ -8,18 +7,6 @@
         <button @click.prevent="$emit('add-post', inputText)" class="zxc">Send</button>
       </form>
     </div>
-
-
-
-    <!-- <v-form ref="form" v-model="isFormValid" >
-      <v-textarea
-          filled
-          auto-grow
-          v-model="inputText"
-          :rules="[rules.textarea]"
-      ></v-textarea>
-      <v-btn @click="$emit('add-post', inputText)" color="primary" :disabled="!isFormValid">Send</v-btn>
-    </v-form> -->
   </div> 
 </template>
 
