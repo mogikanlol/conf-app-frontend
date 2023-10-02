@@ -1,6 +1,26 @@
 <template>
   <div>
-    <v-card max-height="600px" max-width="1500px" class="mx-auto" outlined>
+
+    <div class="zxc">
+      <h3 class="title">Boards</h3>
+      <div class="my-container">
+        <div v-for="(value, index) in Object.keys(boards)" :key = index>
+          <h4><span>{{value}}</span></h4>
+          <div v-for="(board, index) in boards[value]" :key = index>
+            <router-link :to="{ name: 'board', params: {id: board.id } }" style="color: blue;">
+              {{board.title}}
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- <v-card max-height="600px" max-width="1500px" class="mx-auto" outlined>
       <div>
         <v-container>
           <h3>Boards</h3>
@@ -16,7 +36,7 @@
           </v-row>
         </v-container>
       </div>
-    </v-card>
+    </v-card> -->
   </div>
 </template>
 
@@ -38,5 +58,24 @@ export default {
 <style scoped>
 a {
     text-decoration: none;
+}
+
+.zxc {
+  background-color: white;
+  margin-left: 200px;
+  margin-right: 200px;
+  /* border: solid 1px; */
+  box-shadow: 2px 2px 10px rgb(218, 217, 217);
+}
+
+.title {
+  margin: 10px;
+  margin-left: 100px;  
+}
+
+.my-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
 }
 </style>

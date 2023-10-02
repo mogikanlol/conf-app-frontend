@@ -1,6 +1,39 @@
 <template>
   <div>
-    <v-container>
+
+    <div class="maw">
+      <div>
+        <button class="button" @click="goBack()">Back</button>
+        <button class="button" @click="goBottom()">Bottom</button>
+      </div>
+      <div>
+        <ThreadFirstPost 
+          class="mb-2" 
+          :thread=thread 
+        />
+      </div>
+      <div>
+        <ThreadPost 
+          v-for="(post, index) in thread.posts" 
+          :key=index
+          :post=post
+          @delete-post="deletePost(index, $event)"
+          @change-post="changePost(index, $event)"
+        />
+      </div>
+      <div class="new-post-form">
+        <NewPostForm @add-post="addPost" ref="childForm"  />
+      </div>
+      <div>
+        <button class="button" @click="goBack()">Back</button>
+        <button class="button" @click="goTop()">Top</button>
+      </div>
+    </div>
+
+
+
+
+    <!-- <v-container>
       <v-btn color="primary" class="my-2 mx-2" @click="goBack()">Back</v-btn>
       <v-btn color="primary" class="my-2 mx-2" @click="goBottom()">Bottom</v-btn>
       <ThreadFirstPost 
@@ -19,7 +52,7 @@
       </div>
       <v-btn color="primary" class="my-2 mx-2" @click="goBack()">Back</v-btn>
       <v-btn color="primary" class="my-2 mx-2" @click="goTop()">Top</v-btn>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 
@@ -80,3 +113,43 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+.maw {
+  /* border: solid 1px; */
+  margin-left: 260px;
+  margin-right: 260px;
+}
+
+.button {
+
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: white;
+
+
+  color: white;
+  border-radius: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: fit-content;
+  background-color: #1976d2;
+  box-shadow: 1px 1px 1px grey;
+
+  border: none;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.new-post-form {
+  margin-top: 10px;
+}
+
+</style>

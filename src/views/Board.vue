@@ -1,6 +1,19 @@
 <template>
   <div>
-    <v-container>
+
+    <div class="maw">
+      <button class="button" @click="showNewThreadForm = !showNewThreadForm;">{{!showNewThreadForm ? '[Start a New Thread]' : '[Close Form]'}}</button>
+      <div v-if="showNewThreadForm">
+        <NewThreadForm @add-thread="addThread" ref="childForm"/>
+      </div>
+      <ThreadPreview 
+        v-for="(value, index) in board.threads" 
+        :key = index 
+        :thread= value
+      ></ThreadPreview>
+    </div>
+
+    <!-- <v-container>
       <div class="text-center my-2">
         <v-btn color="primary" @click="showNewThreadForm = !showNewThreadForm;">
           {{!showNewThreadForm ? '[Start a New Thread]' : '[Close Form]'}}
@@ -15,7 +28,7 @@
         class="mb-2" 
         :thread= value
       ></ThreadPreview>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 
@@ -51,5 +64,33 @@ export default {
 #newThreadForm {
   width: 800px
 }
+
+.maw {
+  /* border: solid 1px; */
+  margin-left: 260px;
+  margin-right: 260px;
+}
+
+
+.button {
+  border: none;
+
+  color: white;
+  border-radius: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: fit-content;
+  background-color: #1976d2;
+  box-shadow: 1px 1px 1px grey;
+
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px; 
+  display: block;
+
+}
+
 
 </style>
