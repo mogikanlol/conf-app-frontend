@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import NewPostForm from "@/components/thread/NewPostForm"
-import ThreadService from "@/service/ThreadService"
-import ThreadPost from "@/components/thread/ThreadPost"
-import ThreadFirstPost from "@/components/thread/ThreadFirstPost"
+import NewPostForm from "../components/thread/NewPostForm.vue"
+import ThreadService from "../service/ThreadService"
+import ThreadPost from "../components/thread/ThreadPost.vue"
+import ThreadFirstPost from "../components/thread/ThreadFirstPost.vue"
 
 export default {
   name: "thread",

@@ -1,10 +1,10 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+// import Vue from "vue";
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from "../views/Home.vue";
 import Board from "../views/Board.vue";
 import Thread from "../views/Thread.vue";
 
-Vue.use(VueRouter);
+// Vue.use(VueRouter);
 
 const routes = [
   {
@@ -15,7 +15,8 @@ const routes = [
   {
     path: "/boards/:id",
     name: "board",
-    component: Board
+    component: Board,
+    props: true
   },
   {
     path: "/threads/:id",
@@ -24,9 +25,9 @@ const routes = [
   }
 ];
 
-const router = new VueRouter({
-  mode: "history",
-  routes: routes
+const router = createRouter({
+  history: createWebHistory(),
+  routes, 
 });
 
 export default router;

@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar flat>
+    <v-app-bar flat >
       <router-link to="/">
         <v-btn depressed>
           <span>The Header Home</span>

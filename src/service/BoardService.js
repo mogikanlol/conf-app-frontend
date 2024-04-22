@@ -3,7 +3,7 @@ import axios from 'axios'
 export default class BoardService {
 
   static getAll() {
-    return axios.get("/boards", {
+    return axios.get("http://localhost:8081/boards", {
       transformResponse: axios.defaults.transformResponse.concat((data) => {
         return this.toMapGenreToBoards(data);
       })
@@ -11,7 +11,7 @@ export default class BoardService {
   }
 
   static getById(id) {
-    return axios.get("/boards/" + id);
+    return axios.get("http://localhost:8081/boards/" + id);
   }
 
   static addNewThread(id, thread) {
@@ -28,7 +28,7 @@ export default class BoardService {
 
     return axios({
       method: "post",
-      url: "/threads",
+      url: "http://localhost:8081/threads",
       data: requestFormData,
       headers: {'Content-Type': 'multipart/form-data'}
     });

@@ -1,14 +1,14 @@
 <template>
   <div>
     <v-container>
-      <div class="text-center my-2">
-        <v-btn color="primary" @click="showNewThreadForm = !showNewThreadForm;">
+      aa<div class="text-center my-2">
+        <v-btn color="primary" @click="showNewThreadForm = !showNewThreadForm">
           {{!showNewThreadForm ? '[Start a New Thread]' : '[Close Form]'}}
         </v-btn>
       </div>
-      <div id="newThreadForm" v-if="showNewThreadForm" class="mx-auto my-2">
+      <!-- <div id="newThreadForm" v-if="showNewThreadForm" class="mx-auto my-2">
         <NewThreadForm @add-thread="addThread" ref="childForm"/>
-      </div>
+      </div> -->
       <ThreadPreview 
         v-for="(value, index) in board.threads" 
         :key = index 
@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import ThreadPreview from "@/components/board/ThreadPreview"
-import NewThreadForm from "@/components/board/NewThreadForm"
-import BoardService from "@/service/BoardService"
+import ThreadPreview from "../components/board/ThreadPreview.vue"
+import NewThreadForm from "../components/board/NewThreadForm.vue"
+import BoardService from "../service/BoardService"
 
 export default {
   name: "board",

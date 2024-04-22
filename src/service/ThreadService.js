@@ -3,19 +3,19 @@ import axios from 'axios'
 export default class ThreadService {
 
   static getById (id) {
-    return axios.get("/threads/" + id);
+    return axios.get("http://localhost:8081/threads/" + id);
   }
 
   static addPost(post) {
-    return axios.post("/posts", post);
+    return axios.post("http://localhost:8081/posts", post);
   }
 
   static deletePost(postId) {
-    return axios.delete("/posts/" + postId);
+    return axios.delete("http://localhost:8081/posts/" + postId);
   }
 
   static updatePost(post) { 
-    return axios.patch("/posts/" + post.id, {
+    return axios.patch("http://localhost:8081/posts/" + post.id, {
       content: post.content
     })
   }
